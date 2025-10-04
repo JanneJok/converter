@@ -1,0 +1,6 @@
+/* Cookie Consent Styles */
+@import './cookie-consent.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
