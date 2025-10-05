@@ -6,8 +6,12 @@ export default defineConfig({
   base: '/',
   build: {
     cssCodeSplit: false,
+    assetsInlineLimit: 0,
     rollupOptions: {
       output: {
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
         manualChunks: {
           'vendor': ['react', 'react-dom', 'react-router-dom']
         }
