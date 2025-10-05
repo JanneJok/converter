@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ImageConversions.com – Free Online Image Converter</title>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7HZ17DPQ2P"></script>
+    <!-- Google tag (gtag.js) - Deferred for better performance -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-7HZ17DPQ2P"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -26,6 +26,11 @@
     <meta name="theme-color" content="#3b82f6" />
     <meta name="msapplication-TileColor" content="#3b82f6" />
     <meta name="msapplication-config" content="/browserconfig.xml" />
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://imageconversions.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   </head>
   <body>
     <div id="root"></div>
