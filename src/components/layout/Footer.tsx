@@ -8,16 +8,16 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3">
+            <p className="font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3">
               ImageConversions.com
-            </h3>
+            </p>
             <p className="text-sm text-gray-600">
               Free online tool to convert images between JPG, PNG, JPEG, and WebP formats.
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-900 mb-3">Convert</h3>
+            <p className="font-semibold text-gray-900 mb-3">Convert</p>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/jpg-to-webp" className="text-gray-600 hover:text-blue-600">
@@ -43,7 +43,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-900 mb-3">Resources</h3>
+            <p className="font-semibold text-gray-900 mb-3">Resources</p>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/faq" className="text-gray-600 hover:text-blue-600">
@@ -59,7 +59,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-gray-900 mb-3">Legal</h3>
+            <p className="font-semibold text-gray-900 mb-3">Legal</p>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/privacy" className="text-gray-600 hover:text-blue-600">
