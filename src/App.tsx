@@ -14,7 +14,7 @@ import { Terms } from './pages/Terms';
 
 function App() {
   return (
-    <BrowserRouter basename="/converter">
+    <BrowserRouter>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col">
         <Header />
         <main className="max-w-7xl mx-auto px-4 py-12 flex-grow">
