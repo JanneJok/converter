@@ -93,7 +93,7 @@ class CookieConsent {
                 <div class="cookie-banner-text">
                     <div class="cookie-banner-icon">🍪</div>
                     <div class="cookie-banner-info">
-                        <h3>Cookie Usage</h3>
+                        <p class="cookie-banner-title">Cookie Usage</p>
                         <p>We use necessary cookies to ensure site functionality. Analytics cookies help improve user experience.</p>
                     </div>
                 </div>
