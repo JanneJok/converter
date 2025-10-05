@@ -26,32 +26,32 @@ export function Home() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
         <Link to="/jpg-to-webp" className="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">JPG to WebP</h3>
+          <p className="text-xl font-semibold text-gray-900 mb-2">JPG to WebP</p>
           <p className="text-gray-600">Convert JPG images to WebP format for better compression and smaller file size.</p>
         </Link>
 
         <Link to="/png-to-webp" className="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">PNG to WebP</h3>
+          <p className="text-xl font-semibold text-gray-900 mb-2">PNG to WebP</p>
           <p className="text-gray-600">Convert PNG to WebP online. Reduce image size without losing quality.</p>
         </Link>
 
         <Link to="/jpeg-to-webp" className="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">JPEG to WebP</h3>
+          <p className="text-xl font-semibold text-gray-900 mb-2">JPEG to WebP</p>
           <p className="text-gray-600">Optimize JPEG images by converting them to modern WebP format.</p>
         </Link>
 
         <Link to="/webp-to-jpg" className="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">WebP to JPG</h3>
+          <p className="text-xl font-semibold text-gray-900 mb-2">WebP to JPG</p>
           <p className="text-gray-600">Convert WebP images back to JPG for maximum compatibility.</p>
         </Link>
 
         <Link to="/webp-to-png" className="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">WebP to PNG</h3>
+          <p className="text-xl font-semibold text-gray-900 mb-2">WebP to PNG</p>
           <p className="text-gray-600">Convert WebP to PNG for lossless quality and transparency support.</p>
         </Link>
 
         <Link to="/faq" className="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">FAQ</h3>
+          <p className="text-xl font-semibold text-gray-900 mb-2">FAQ</p>
           <p className="text-gray-600">Common questions about image conversion and WebP format.</p>
         </Link>
       </div>
