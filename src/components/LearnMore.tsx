@@ -25,12 +25,12 @@ export function LearnMore({ title, description, links }: LearnMoreProps) {
           >
             <div className="flex items-start justify-between">
               <div className="flex-1">
-                <h3 className="font-medium text-blue-600 group-hover:text-blue-700 mb-1 flex items-center">
+                <p className="font-medium text-blue-600 group-hover:text-blue-700 mb-1 flex items-center">
                   {link.text}
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
-                </h3>
+                </p>
                 <p className="text-sm text-gray-600">{link.description}</p>
               </div>
             </div>
