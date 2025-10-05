@@ -6,7 +6,8 @@ export default defineConfig({
   base: '/',
   build: {
     cssCodeSplit: false,
-    assetsInlineLimit: 0,
+    assetsInlineLimit: 4096,
+    cssMinify: 'lightningcss',
     rollupOptions: {
       output: {
         assetFileNames: 'assets/[name]-[hash][extname]',
