@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
   title: string;
@@ -7,9 +8,12 @@ interface SEOProps {
 }
 
 export function SEO({ title, description }: SEOProps) {
+  const location = useLocation();
+
   useEffect(() => {
     document.title = title;
 
+    // Update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
       metaDescription = document.createElement('meta');
@@ -17,7 +21,17 @@ export function SEO({ title, description }: SEOProps) {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', description);
-  }, [title, description]);
+
+    // Update canonical URL
+    const canonicalUrl = `https://imageconversions.com${location.pathname}`;
+    let linkCanonical = document.querySelector('link[rel="canonical"]');
+    if (!linkCanonical) {
+      linkCanonical = document.createElement('link');
+      linkCanonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.setAttribute('href', canonicalUrl);
+  }, [title, description, location.pathname]);
 
   return null;
 }
