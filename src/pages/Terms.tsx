@@ -79,7 +79,7 @@ export function Terms() {
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Contact</h2>
           <p className="text-gray-700 leading-relaxed">
-            If you have questions about these terms, please contact us through our <a href="/converter/contact" className="text-blue-600 hover:underline">Contact page</a>.
+            If you have questions about these terms, please contact us through our <a href="/contact" className="text-blue-600 hover:underline">Contact page</a>.
           </p>
         </div>
       </div>

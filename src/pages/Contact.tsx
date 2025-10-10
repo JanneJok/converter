@@ -136,7 +136,7 @@ export function Contact() {
               * Required fields
             </p>
             <p className="text-sm text-gray-600 mt-2">
-              By submitting this form, you agree to our <a href="/converter/privacy" className="text-blue-600 hover:underline">Privacy Policy</a>.
+              By submitting this form, you agree to our <a href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</a>.
             </p>
           </div>
         </div>

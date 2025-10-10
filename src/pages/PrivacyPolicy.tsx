@@ -85,7 +85,7 @@ export function PrivacyPolicy() {
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Contact & Data Controller</h2>
           <p className="text-gray-700 leading-relaxed">
-            For privacy-related questions or to exercise your rights, please contact us through our <a href="/converter/contact" className="text-blue-600 hover:underline">Contact page</a>.
+            For privacy-related questions or to exercise your rights, please contact us through our <a href="/contact" className="text-blue-600 hover:underline">Contact page</a>.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Changes to This Policy</h2>
