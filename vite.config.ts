@@ -1,5 +1,6 @@
 import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
+import { prerenderPlugin } from './vite-plugin-prerender'
 
 // Plugin to inline CSS into HTML
 function inlineCSS(): Plugin {
@@ -30,7 +31,7 @@ function inlineCSS(): Plugin {
 }
 
 export default defineConfig({
-  plugins: [react(), inlineCSS()],
+  plugins: [react(), inlineCSS(), prerenderPlugin()],
   base: '/',
   build: {
     cssCodeSplit: false,

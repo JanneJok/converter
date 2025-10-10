@@ -11,7 +11,7 @@ import{r as z,a as H,L as m,b as p,B as Y,R as $,c as y}from"./vendor-C8ApJYtC.j
                 <div class="cookie-banner-text">
                     <div class="cookie-banner-icon">🍪</div>
                     <div class="cookie-banner-info">
-                        <h3>Cookie Usage</h3>
+                        <p class="cookie-banner-title">Cookie Usage</p>
                         <p>We use necessary cookies to ensure site functionality. Analytics cookies help improve user experience.</p>
                     </div>
                 </div>
