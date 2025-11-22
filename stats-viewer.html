@@ -218,7 +218,6 @@
 
         <div class="controls">
             <button class="btn" onclick="loadAnalytics()">🔄 Refresh Data</button>
-            <button class="btn btn-danger" onclick="clearAnalytics()">🗑️ Clear All Data</button>
         </div>
 
         <div id="loading" class="loading">
@@ -229,6 +228,10 @@
 
         <div id="content" style="display: none;">
             <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Page Views</div>
+                    <div class="stat-value" id="totalPageViews">0</div>
+                </div>
                 <div class="stat-card">
                     <div class="stat-label">Image Uploads</div>
                     <div class="stat-value" id="totalImageUploads">0</div>
@@ -241,6 +244,11 @@
                     <div class="stat-label">Total Images</div>
                     <div class="stat-value" id="totalImagesProcessed">0</div>
                 </div>
+            </div>
+
+            <div class="daily-section">
+                <h2 class="section-title">Referrer Breakdown</h2>
+                <div id="referrerBreakdown" style="margin-bottom: 2rem;"></div>
             </div>
 
             <div class="daily-section">
@@ -299,17 +307,25 @@
 
                 // Process data
                 const totals = {
+                    pageViews: 0,
                     imageUploads: 0,
                     convertClicks: 0,
                     totalImages: 0
                 };
 
                 const formatConversions = {};
+                const referrerData = {};
                 const dailyData = {};
 
                 data.forEach(event => {
+                    // Track referrers
+                    const ref = event.referrer || 'direct';
+                    referrerData[ref] = (referrerData[ref] || 0) + 1;
+
                     // Aggregate totals
-                    if (event.event_type === 'image_upload') {
+                    if (event.event_type === 'page_view') {
+                        totals.pageViews += 1;
+                    } else if (event.event_type === 'image_upload') {
                         totals.imageUploads += 1;
                         totals.totalImages += event.file_count || 1;
                     } else if (event.event_type === 'convert_click') {
@@ -324,6 +340,7 @@
                     const date = event.date;
                     if (!dailyData[date]) {
                         dailyData[date] = {
+                            pageViews: 0,
                             imageUploads: 0,
                             convertClicks: 0,
                             totalImages: 0,
@@ -331,7 +348,9 @@
                         };
                     }
 
-                    if (event.event_type === 'image_upload') {
+                    if (event.event_type === 'page_view') {
+                        dailyData[date].pageViews += 1;
+                    } else if (event.event_type === 'image_upload') {
                         dailyData[date].imageUploads += 1;
                         dailyData[date].totalImages += event.file_count || 1;
                     } else if (event.event_type === 'convert_click') {
@@ -343,9 +362,23 @@
                 });
 
                 // Update UI
+                document.getElementById('totalPageViews').textContent = totals.pageViews;
                 document.getElementById('totalImageUploads').textContent = totals.imageUploads;
                 document.getElementById('totalConvertClicks').textContent = totals.convertClicks;
                 document.getElementById('totalImagesProcessed').textContent = totals.totalImages;
+
+                // Render referrer breakdown
+                const referrerBreakdown = document.getElementById('referrerBreakdown');
+                referrerBreakdown.innerHTML = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">' +
+                    Object.entries(referrerData)
+                        .sort((a, b) => b[1] - a[1])
+                        .map(([ref, count]) => `
+                            <div style="background: rgba(30, 41, 59, 0.6); padding: 1rem; border-radius: 12px; border: 1px solid rgba(148, 163, 184, 0.1);">
+                                <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.25rem;">${ref}</div>
+                                <div style="font-size: 1.5rem; font-weight: bold; color: #60a5fa;">${count}</div>
+                            </div>
+                        `).join('') +
+                    '</div>';
 
                 // Render format breakdown
                 const formatBreakdown = document.getElementById('formatBreakdown');
@@ -392,6 +425,10 @@
                         </div>
                         <div class="day-stats">
                             <div class="day-stat">
+                                <span class="day-stat-label">Page Views</span>
+                                <span class="day-stat-value">${stats.pageViews}</span>
+                            </div>
+                            <div class="day-stat">
                                 <span class="day-stat-label">Image Uploads</span>
                                 <span class="day-stat-value">${stats.imageUploads}</span>
                             </div>
@@ -435,11 +472,6 @@
                 errorDiv.style.display = 'block';
                 document.getElementById('content').style.display = 'none';
             }
-        }
-
-        // Clear analytics data - disabled for Supabase (use Supabase dashboard instead)
-        function clearAnalytics() {
-            alert('To clear analytics data, please use the Supabase dashboard.\n\nThis prevents accidental data deletion.');
         }
 
         // Load data on page load

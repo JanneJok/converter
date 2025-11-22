@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { Home } from './pages/Home';
@@ -12,9 +13,23 @@ import { Contact } from './pages/Contact';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { Terms } from './pages/Terms';
 
+function PageViewTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Track page view on route change
+    if ((window as any).LocalAnalytics) {
+      (window as any).LocalAnalytics.pageView();
+    }
+  }, [location.pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <PageViewTracker />
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col">
         <Header />
         <main className="max-w-7xl mx-auto px-4 py-12 flex-grow">

@@ -66,5 +66,9 @@ const LocalAnalytics = window.LocalAnalytics = {
             format_from: formatFrom,
             format_to: formatTo
         });
+    },
+
+    pageView() {
+        this.track('page_view');
     }
 };
