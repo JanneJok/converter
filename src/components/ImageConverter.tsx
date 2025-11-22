@@ -33,12 +33,26 @@ export function ImageConverter({ defaultFormat = 'png' }: ImageConverterProps) {
       alert(`Maximum ${MAX_FILES} images allowed. You can add ${MAX_FILES - selectedFiles.length} more.`);
       return;
     }
+
+    // Track additional image uploads
+    if (files.length > 0 && (window as any).LocalAnalytics) {
+      (window as any).LocalAnalytics.imageUpload(files.length);
+    }
+
     setSelectedFiles([...selectedFiles, ...files]);
     setConvertedImages([]);
   };
 
   const handleConvert = async () => {
     if (selectedFiles.length === 0) return;
+
+    // Track convert button click
+    if ((window as any).LocalAnalytics) {
+      // Try to detect the format from the first file
+      const firstFile = selectedFiles[0];
+      const formatFrom = firstFile.type.split('/')[1] || 'unknown';
+      (window as any).LocalAnalytics.convertClick(formatFrom, outputFormat);
+    }
 
     setIsConverting(true);
     setConversionProgress(0);

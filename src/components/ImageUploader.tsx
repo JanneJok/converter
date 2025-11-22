@@ -18,6 +18,11 @@ export function ImageUploader({ onFilesSelected, maxFiles }: ImageUploaderProps)
         return;
       }
 
+      // Track image upload
+      if (files.length > 0 && (window as any).LocalAnalytics) {
+        (window as any).LocalAnalytics.imageUpload(files.length);
+      }
+
       onFilesSelected(files);
     },
     [onFilesSelected, maxFiles]
@@ -30,6 +35,11 @@ export function ImageUploader({ onFilesSelected, maxFiles }: ImageUploaderProps)
       if (files.length > maxFiles) {
         alert(`Maximum ${maxFiles} images allowed`);
         return;
+      }
+
+      // Track image upload
+      if (files.length > 0 && (window as any).LocalAnalytics) {
+        (window as any).LocalAnalytics.imageUpload(files.length);
       }
 
       onFilesSelected(files);
